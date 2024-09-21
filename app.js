@@ -11,13 +11,6 @@ Computer will randomly pick between the three choices.
 Computer will return the choice it has made based off of its random choice.
 
 
-0 - 0.99 = 0
-1 - 1.99 = 1
-2 - 2.99 = 2
-
-0 - 0.33
-0.34 - 0.66
-0.67 - 99
 
 */
 
@@ -32,4 +25,18 @@ function getComputerChoice() {
     } else {
         return "Scissors";
     };
+}
+
+/*
+
+Function for human choice:
+
+Use a prompt method to have the human enter one of the three choices
+Save to a variable and return the value
+
+*/
+
+function getHumanChoice() {
+    let humanChoice = prompt("Rock, paper, or scissors?");
+    return humanChoice;
 }
