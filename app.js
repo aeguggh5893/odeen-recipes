@@ -14,6 +14,11 @@ Computer will return the choice it has made based off of its random choice.
 
 */
 
+// Human and computer score declared in the global scope
+
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let compChoice;
     compChoice = Math.floor(Math.random() * 3) + 1;
