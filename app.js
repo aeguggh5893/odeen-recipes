@@ -16,8 +16,7 @@ Computer will return the choice it has made based off of its random choice.
 
 // Human and computer score declared in the global scope
 
-let humanScore = 0;
-let computerScore = 0;
+
 
 function getComputerChoice() {
     let compChoice;
@@ -46,8 +45,6 @@ function getHumanChoice() {
     return humanChoice.toLowerCase();
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
 /*
 Create function for a single round of rock, paper, scissors
@@ -58,17 +55,51 @@ Increment the global score variables of whoever won the round
 Possibility of being a tie
 */
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanPick, computerPick) {
+
+    let humanChoice = humanPick();
+    let computerChoice = computerPick();
 
     if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper") {
         console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
-        humanScore++;
+        return "Win";
     } else if (computerChoice === "rock" && humanChoice === "scissors" || computerChoice === "paper" && humanChoice === "rock" || computerChoice === "scissors" && humanChoice === "paper") {
         console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
-        computerScore++;
+        return "Loss"
     } else {
         console.log(`Tie! Both players chose ${humanChoice}!`);
     }
 }
 
-playRound(humanSelection, computerSelection);
+// playRound(humanSelection, computerSelection);
+
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+
+    let round = playRound(getHumanChoice, getComputerChoice);
+    console.log(`Human score: ${humanScore}, Computer score: ${computerScore}`);
+
+    /*
+    if (round === "Win") {
+        humanScore++;
+    } else if (round === "Loss") {
+        computerScore++;
+    } Basically repeat that for round2 thru round5 but this seems inefficient
+    */
+}
+
+
+/*
+Create a function that plays multiple rounds
+Holds the score variables and calls playRound multiple times
+Figure out how to change the humanChoice and computerChoice each round when playRound function is called
+The humanChoice and computerChoice are const, is it a matter of invoking them each time the function is called?
+Probably have to change humanChoice and computerChoice into let in order to change their variables through each iteration.
+*/
+
+/*
+Bugs:
+Capitalize the first letter of each choice for the players
+Increment score properly and show through the console
+*/
